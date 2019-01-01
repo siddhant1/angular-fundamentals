@@ -1,3 +1,18 @@
-<p>
-  passenger-details works!
-</p>
+<div>
+  <span [ngClass]="{
+    'checked-in': detail.checkedIn,
+    'checked-out': !detail.checkedIn
+  }" class="status"></span>
+  {{ detail.fullname }}
+  <div class="date">
+    Check In Date :
+    {{
+    detail.checkInDate
+    ? (detail.checkInDate | date | uppercase)
+    : "Not Checked In"
+    }}
+  </div>
+  <div class="clildren">
+    Children : {{detail.children?.length || 0}}
+  </div>
+</div>

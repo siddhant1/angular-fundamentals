@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { Passenger } from "../../containers/passenger-dashbaord/models/passenger.interface";
 
 @Component({
-  selector: 'app-passenger-details',
-  templateUrl: './passenger-details.component.html',
-  styleUrls: ['./passenger-details.component.css']
+  selector: "passenger-details",
+  templateUrl: "./passenger-details.component.html",
+  styleUrls: ["./passenger-details.component.scss"]
 })
-export class PassengerDetailsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class PassengerDetailsComponent {
+  @Input()
+  detail: Passenger;
 }
