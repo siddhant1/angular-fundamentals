@@ -1,9 +1,11 @@
 <div>
   <span [ngClass]="{
-    'checked-in': detail.checkedIn,
-    'checked-out': !detail.checkedIn
+    'checked-in': detail.checkedIn
   }" class="status"></span>
-  {{ detail.fullname }}
+  <div *ngIf="edit">
+    <input type="text" #name [value]="detail.fullname" (input)="OnNameChange(name.value)" />
+  </div>
+  <div *ngIf="!edit">{{ detail.fullname }}</div>
   <div class="date">
     Check In Date :
     {{
@@ -15,4 +17,6 @@
   <div class="clildren">
     Children : {{detail.children?.length || 0}}
   </div>
+  <button (click)="toggleEdit()">{{edit ? 'Done' : 'Edit'}}</button>
+  <button (click)="Onremove()">Remove</button>
 </div>

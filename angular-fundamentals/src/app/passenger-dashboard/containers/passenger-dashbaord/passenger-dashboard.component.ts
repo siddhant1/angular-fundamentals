@@ -46,4 +46,17 @@ export class PassengerDashboard implements OnInit {
       }
     ];
   }
+  handleEdit(event: Passenger) {
+    this.passengers = this.passengers.map((passenger: Passenger) => {
+      if (passenger.id === event.id) {
+        passenger.fullname = event.fullname;
+      }
+      return passenger;
+    });
+  }
+  handleRemove(event: Passenger) {
+    this.passengers = this.passengers.filter(
+      (passenger: Passenger) => passenger.id !== event.id
+    );
+  }
 }
