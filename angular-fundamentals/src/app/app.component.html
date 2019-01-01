@@ -24,30 +24,7 @@
     </ul> -->
   </div>
   <div class="app">
-    <h3>Airline Passengers</h3>
-    <ul>
-      <li *ngFor="let passenger of passengers; let i = index">
-        <span
-          [ngClass]="{
-            'checked-in': passenger.checkedIn,
-            'checked-out': !passenger.checkedIn
-          }"
-          class="status"
-        ></span>
-        {{ i + 1 }} {{ passenger.fullname }}
-        <div class="date">
-          Check In Date :
-          {{
-            passenger.checkInDate
-              ? (passenger.checkInDate | date | uppercase)
-              : "Not Checked In"
-          }}
-        </div>
-        <div class="clildren">
-          Children : {{passenger.children?.length || 0}}
-        </div>
-      </li>
-    </ul>
+    <passenger-dashboard></passenger-dashboard>
   </div>
   <!-- <hr /> -->
   <!-- <ng-template ngFor let-passenger let-i=index [ngForOf]="passengers">
