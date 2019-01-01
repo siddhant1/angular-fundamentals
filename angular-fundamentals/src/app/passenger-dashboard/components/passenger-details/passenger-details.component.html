@@ -17,6 +17,8 @@
   <div class="clildren">
     Children : {{detail.children?.length || 0}}
   </div>
-  <button (click)="toggleEdit()">{{edit ? 'Done' : 'Edit'}}</button>
-  <button (click)="Onremove()">Remove</button>
+  <div>
+    <button [ngStyle]="{'margin-left.3px':'true'}" (click)="toggleEdit()">{{edit ? 'Done' : 'Edit'}}</button>
+    <button (click)="Onremove()">Remove</button>
+  </div>
 </div>
