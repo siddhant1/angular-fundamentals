@@ -1,6 +1,6 @@
 import { PassengerDashboardService } from "./../../passenger-dashboard.service";
 import { Component, OnInit } from "@angular/core";
-import { Passenger} from "./models/passenger.interface";
+import { Passenger } from "./models/passenger.interface";
 @Component({
   selector: "passenger-dashboard",
   styleUrls: ["./passenger-dashboard.component.scss"],
@@ -10,7 +10,9 @@ export class PassengerDashboard implements OnInit {
   constructor(private passengerService: PassengerDashboardService) {}
   passengers: Passenger[];
   ngOnInit() {
-    this.passengers = this.passengerService.getPassengers();
+    this.passengerService
+      .getPassengers()
+      .subscribe((data: Passenger[]) => (this.passengers = data));
   }
   handleEdit(event: Passenger) {
     this.passengers = this.passengers.map((passenger: Passenger) => {

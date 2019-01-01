@@ -10,6 +10,7 @@ export class PassengerCountComponent {
   @Input()
   items: Passenger[];
   checkedInCount() {
+    if (!this.items) return;
     return this.items.filter((passenger: Passenger) => passenger.checkedIn)
       .length;
   }
